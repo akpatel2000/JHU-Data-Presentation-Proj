@@ -13,8 +13,9 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r airportHub}
 library(leaflet)
 
+
 airlineIcon <- makeIcon(
-    iconUrl = "/Users/atulpatel/Downloads/AAlogo.jpeg",
+    iconUrl = "https://github.com/akpatel2000/Projects/blob/gh-pages/AAlogo.jpeg?raw=true",
     iconWidth = 20*215/230, iconHeight = 20,
     iconAnchorX = 20*215/230/2, iconAnchorY = 10)
 
