@@ -1,0 +1,36 @@
+---
+title: "Major US Hubs of American Airlines"
+author: "AK Patel"
+date: "7/30/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+```{r airportHub}
+library(leaflet)
+
+airlineIcon <- makeIcon(
+    iconUrl = "/Users/atulpatel/Downloads/AAlogo.jpeg",
+    iconWidth = 20*215/230, iconHeight = 20,
+    iconAnchorX = 20*215/230/2, iconAnchorY = 10)
+
+dfAirports <- data.frame(
+    lat = c(33.641282, 33.941785, 41.974070, 32.899539, 40.640839, 25.795884, 40.776748, 39.874445, 33.437430,38.851459),
+    lng = c(-80.947400, -118.408830, -87.907536, -97.040764, -73.778482, -80.287003, -73.874309, -75.242466, -112.007531, -77.040532))
+
+
+dfAirportData <- data.frame(
+    airport = c("CLT", "LAX", "ORD", "DFW", "JFK", "MIA", "LGA", "PHL", "PHX", "DCA"),
+    passengers = c(21913156, 36351226, 36305668, 31589832, 27717503, 20986341, 14319924, 15101318, 21351445, 11242375))
+
+
+dfAirports %>%  leaflet() %>%
+                addProviderTiles(providers$OpenStreetMap) %>% 
+                addCircles(weight = 1, radius = dfAirportData$passengers/100) %>%
+                addMarkers(icon = airlineIcon, popup = dfAirportData$airport, 
+                           clusterOptions = markerClusterOptions())
+```
