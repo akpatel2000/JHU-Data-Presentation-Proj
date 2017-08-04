@@ -1,0 +1,38 @@
+---
+title: "MTCARS"
+author: "AK Patel"
+date: "August 4, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+data("mtcars")
+```
+
+## Another Look at MTCARS Data
+```{r mtcars}
+f1 <- list(
+  family = "sans serif",
+  size = 14,
+  color = "red")
+
+# f2 <- list(
+#   family = "Courier New",
+#   size = 24,
+#   color = "red")
+
+x <- list(
+  title = "Horse Power",
+  titlefont = f1
+)
+
+y <- list(
+  title = "Miles Per Gallon",
+  titlefont = f1
+  
+)
+
+plot_ly(data = mtcars, x = mtcars$hp, y = mtcars$mpg, size = mtcars$wt, type = "scatter", mode = "markers", symbol = mtcars$cyl, symbols = c(15,17,19), color = as.factor(mtcars$cyl), name = "Cylinder") %>% layout(xaxis = x, yaxis = y)
+```
