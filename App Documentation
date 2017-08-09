@@ -1,0 +1,14 @@
+How to run Treasury Curve Application?
+> go to link https://courseradataprojectfinal.shinyapps.io/myapp/
+
+What does the app do?
+> It shows you two US Treasury yield curves.  The first curve (green) is determined by the date you select.  The second (blue) is determined by the slider, by looking back x number of days from the first curve.  This app allows you to compare US Treasury yields from two different dates.
+
+Where is the date sourced?
+> The original data is found on the US Federal Reserve Database.  The comma delimited files were downloaded and are hosted on my github account.
+
+What is a Yield Curve?
+> A yield curve is a curve which plots maturity vs. Yield.  In practice you will have a yield, either observed in market or derived by spline(), for each maturity. So if for some odd reason you wanted to know what a 15 year US Treasury bond was yielding, you would look on this graph.
+
+What processing is done?
+> The yields provided by the Federal Reserve are for only the 2, 5, 7, 10 and 30 year maturies.  I use a function called spline() to produce a yield curve.
